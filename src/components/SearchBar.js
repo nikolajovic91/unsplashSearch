@@ -1,22 +1,14 @@
 import React, { Component } from "react";
 
 class SearchBar extends Component {
-  // onInputChange(e) {
-  //   e.target.value
-  // }
-
   state = { term: "" };
 
   onFormSubmit = e => {
     e.preventDefault();
-
-    // let output = this.state.term;
-    // document.getElementById("search").innerHTML = output;
-
-    // console.log(this.state.term)
-
-    this.props.onSubmit(this.state.term)
+    this.props.onSubmit(this.state.term);
   };
+
+  onInputChange = e => this.setState({ term: e.target.value });
 
   render() {
     return (
@@ -27,7 +19,7 @@ class SearchBar extends Component {
             <input
               type="text"
               value={this.state.term}
-              onChange={e => this.setState({ term: e.target.value })}
+              onChange={this.onInputChange}
             />
           </div>
         </form>
